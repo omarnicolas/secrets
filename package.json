@@ -1,0 +1,29 @@
+{
+  "name": "secrets",
+  "version": "0.0.1",
+  "description": "A simple CLI password manager for Node.js",
+  "bin": "index.js",
+  "scripts": {
+    "lint": "standard --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omarnicolas/secrets.git"
+  },
+  "keywords": [],
+  "author": "Omar Nicolas <onicolasmartin@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omarnicolas/secrets/issues"
+  },
+  "homepage": "https://github.com/omarnicolas/secrets#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "minimist": "^1.2.5",
+    "sqlite3": "^4.2.0"
+  },
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}

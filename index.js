@@ -44,9 +44,10 @@ async function main () {
         const isAuth = await db.authenticate(user, pass)
         if (!isAuth) throw new Error('Invalid user or password')
 
-        await db.createSecret(isAuth, pass, name, value)
+        await db.createSecret(user, pass, name, value)
         console.log(`secret: ${value} created`)
       } catch (err) {
+        console.log(err)
         throw new Error('Cannot create secret')
       }
       break
@@ -62,6 +63,7 @@ async function main () {
           console.log(`- ${s.name}`)
         })
       } catch (err) {
+        console.log(err)
         throw new Error('Cannot list secrets')
       }
       break
@@ -72,7 +74,7 @@ async function main () {
         const isAuth = await db.authenticate(user, pass)
         if (!isAuth) throw new Error('Invalid user or password')
 
-        const secret = await db.getSecret(isAuth, pass, name)
+        const secret = await db.getSecret(user, pass, name)
         if (!secret) return console.log(`secret ${name} not found`)
         console.log(`- ${secret.name} = ${secret.value}`)
       } catch (err) {
@@ -86,7 +88,7 @@ async function main () {
         const isAuth = await db.authenticate(user, pass)
         if (!isAuth) throw new Error('Invalid user or password')
 
-        await db.updateSecret(isAuth, name, value)
+        await db.updateSecret(user, name, value)
         console.log(`secret ${name} updated`)
       } catch (err) {
         throw new Error('Cannot update secret')
@@ -99,7 +101,7 @@ async function main () {
         const isAuth = await db.authenticate(user, pass)
         if (!isAuth) throw new Error('Invalid user or password')
         
-        await db.deleteSecret(isAuth, name)
+        await db.deleteSecret(user, name)
         console.log(`secret ${name} deleted`)
       } catch (err) {
         throw new Error('Cannot delete secret')

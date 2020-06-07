@@ -1,0 +1,1 @@
+A simple CLI password manager for Node.js

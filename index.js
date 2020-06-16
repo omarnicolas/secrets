@@ -100,7 +100,7 @@ async function main () {
         const pass = await promptPassword()
         const isAuth = await db.authenticate(user, pass)
         if (!isAuth) throw new Error('Invalid user or password')
-        
+
         await db.deleteSecret(user, name)
         console.log(`secret ${name} deleted`)
       } catch (err) {
